@@ -1,3 +1,5 @@
+#= require ./map
+
 ###
   Extension of the leaflet icon simply passing an element to the corresponding marker
 ###
@@ -14,7 +16,7 @@ Icon = L.Icon.extend
     null
 
 ###
-  Create marker callback, used in the features geo JSON layer
+  Create marker and bind popup. Used in the geo JSON layer
 ###
 createMarker = (feature, latLng)->
   properties = feature.properties
@@ -25,10 +27,28 @@ createMarker = (feature, latLng)->
     'data-category': properties.category
     'data-icon': properties.icon
 
-  new L.Marker latLng,
+  marker = new L.Marker latLng,
     icon: new Icon($icon)
     title: properties.name
     riseOnHover: true
+
+  attachEvents(marker, $icon)
+
+  $icon.data('marker', marker)
+
+  marker
+
+###
+  Delegate marker events to dom events
+###
+attachEvents = (marker, element)->
+  $element = $(element)
+
+  marker.on 'click popupopen popupclose', (event)->
+    $element.trigger("map-marker:#{event.type}", event)
+    return
+
+  return
 
 ###
   Exports

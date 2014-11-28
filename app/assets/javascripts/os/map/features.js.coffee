@@ -1,4 +1,5 @@
-#= require os/map/marker
+#= require ./map
+#= require ./marker
 
 lastRequest = null
 wheelmap = @wheelmap

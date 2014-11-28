@@ -1,0 +1,100 @@
+.node-popup
+  %header.node-popup-header.headline-gradient
+    %a{:href => "/nodes/1115944545"}
+      %h2{:itemprop => "name"}
+        ATU Auto Teile Unger
+      %ol.node-popup-header-breadcrumbs.unstyled
+        %li
+          %i.icon-angle-right>
+          Berlin
+        %li
+          %i.icon-angle-right>
+          Einkaufen
+        %li
+          %i.icon-angle-right>
+          Autowerkstatt
+      %address.node-popup-header-address Mariannenplatz 2, 10997 Berlinx
+  .node-popup-content
+    %h3 Rollstuhlgerechtigkeit:
+    %section#ember836.ember-view.node-status-dropdown
+      .dropdown
+        %a.dropdown-toggle.btn.wheelchair.yes{"data-toggle" => "dropdown"}
+          Voll Rollstuhlgerecht
+          %i#ember838.ember-view.icon-question-sign
+          %i.icon-caret-down.pull-right
+        %ul.dropdown-menu{:role => "menu"}
+          %li
+            %a
+              #ember853.ember-view.wm-checkbox.checked.yes.wheelchair
+                %i.icon-ok
+              Voll rollstuhlgerecht
+              %i#ember854.ember-view.icon-question-sign
+          %li
+            %a
+              #ember855.ember-view.wm-checkbox.limited.wheelchair
+                %i.icon-ok
+              Teilweise rollstuhlgerecht
+              %i#ember856.ember-view.icon-question-sign
+          %li
+            %a
+              #ember857.ember-view.wm-checkbox.no.wheelchair
+                %i.icon-ok
+              Nicht rollstuhlgerecht
+              %i#ember858.ember-view.icon-question-sign
+          %li.submit
+            %button.btn.node-popup-status-submit{:disabled => "disabled"}
+              Speichern
+        .node-popup-buttons
+      .node-popup-edit.btn-group
+        %a.btn.details.wheelmap-btn{:href => "/nodes/1115944545"}
+          Details
+        %a#ember861.ember-view.btn.edit.wheelmap-btn{:href => "#/nodes/1115944545/edit"}
+          %i.icon-pencil
+      .node-popup-share.btn-group.dropdown
+        %button.dropdown-toggle.btn.wheelmap-btn{"data-toggle" => "dropdown"}
+          %i.icon-share
+        %ul.dropdown-menu{:role => "menu"}
+          %li
+            %a#ember900.ember-view{:href => "http://twitter.com/share?dnt=true&hashtags=wheelmap&lang=de&related=wheelmap%2Csozialhelden&text=Ich+habe+folgenden+Ort+auf+Wheelmap.org+gefunden%3A+ATU+Auto+Teile+Unger&url=http%3A%2F%2Fstaging.wheelmap.org%2Fnodes%2F1115944545"}
+              %i.icon-twitter.icon-fixed-width
+              Twitter
+          %li
+            %a#ember907.ember-view{:href => "http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http%3A%2F%2Fstaging.wheelmap.org%2Fnodes%2F1115944545"}
+              %i.icon-facebook.icon-fixed-width
+              Facebook
+          %li
+            %a#ember914.ember-view{:href => "mailto:?body=Ich%20habe%20folgenden%20Ort%20auf%20Wheelmap.org%20gefunden%3A%20ATU%20Auto%20Teile%20Unger (http%3A%2F%2Fstaging.wheelmap.org%2Fnodes%2F1115944545)"}
+              %i.icon-envelope-alt.icon-fixed-width
+              E-Mail
+      .node-popup-report.btn-group.dropdown.pull-right
+        %button.dropdown-toggle.btn.wheelmap-btn{"data-toggle" => "dropdown"}
+          %i.icon-bolt
+          %span.caret
+        .dropdown-accordion.node-popup-report-accordion
+          %header
+            .pull-right
+              %a.btn.btn-mini{:href => "http://wheelmap.org/about/faqs/", :target => "_blank"} FAQ
+              %a.btn.btn-mini{:href => "mailto:%62%75%67%73@%77%68%65%65%6c%6d%61%70.%6f%72%67"}
+                %i.icon-envelope-alt
+            Gibt es ein Problem mit diesem Ort?
+          .accordion-group
+            %a.collapsed.accordion-toggle{"data-parent" => ".node-popup-report-accordion", "data-target" => ".node-popup-report-0", "data-toggle" => "collapse"}
+              %i.icon-chevron-up.pull-right
+              Die Markierung ist falsch.
+            .collapse.node-popup-report-0
+              .accordion-inner
+                Du kannst die Markierung jederzeit selbst ändern. Einfach die richtige Markierung wählen und "Speichern" - fertig!
+          .accordion-group
+            %a.collapsed.accordion-toggle{"data-parent" => ".node-popup-report-accordion", "data-target" => ".node-popup-report-1", "data-toggle" => "collapse"}
+              %i.icon-chevron-up.pull-right
+              Angaben zum Ort sind falsch bzw. fehlen.
+            .collapse.node-popup-report-1
+              .accordion-inner
+                Als angemeldeter Nutzer kannst du alle Angaben zu einem Ort selbst ändern. Klicke auf "Bearbeiten" und korrigiere oder ergänze die Angaben.
+          .accordion-group
+            %a.collapsed.accordion-toggle{"data-parent" => ".node-popup-report-accordion", "data-target" => ".node-popup-report-2", "data-toggle" => "collapse"}
+              %i.icon-chevron-up.pull-right
+              Ich habe mehr Informationen zum Ort.
+            .collapse.node-popup-report-2
+              .accordion-inner
+                Du kannst zusätzliche Informationen (z.B. "Dieser Ort hat eine Rampe") als Hinweis hinterlassen. Klicke auf "Bearbeiten" und "Kommentar verfassen".

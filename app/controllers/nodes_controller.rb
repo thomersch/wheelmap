@@ -127,8 +127,14 @@ class NodesController < ApplicationController
   def claim
   end
 
-  def popover
+  def popup
     @node = Poi.find(params[:id])
+
+    respond_to do |wants|
+      wants.html do
+        render layout: !request.xhr?
+      end
+    end
   end
 
   # Before filter

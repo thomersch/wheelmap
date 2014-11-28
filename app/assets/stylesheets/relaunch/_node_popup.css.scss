@@ -20,37 +20,37 @@
   .wheelmap-btn {
     color: darken($orange-gray, 60%);
   }
-}
 
-.node-popup-header {
-  @include border-top-radius(3px);
+  &-header {
+    @include border-top-radius(3px);
 
-  a {
-    display: block;
-    padding: 12px 12px 10px 12px;
+    a {
+      display: block;
+      padding: 12px 12px 10px 12px;
+    }
+
+    h2,
+    &-address,
+    &-breadcrumbs {
+      margin: 0;
+    }
+
+    h2 {
+      font-size: $fontSizeLarge;
+      line-height: $baseLineHeight * 1.2;
+    }
   }
 
-  h2,
-  address,
-  .breadcrumbs {
-    margin: 0;
-  }
+  &-content {
+    @include background-image(linear-gradient(-180deg, lighten($orange-gray, 7%) 60%, darken($orange-gray, 5%) 100%));
+    @include border-bottom-radius(3px);
+    padding: 12px;
 
-  h2 {
-    font-size: $fontSizeLarge;
-    line-height: $baseLineHeight * 1.2;
-  }
-}
-
-.node-popup-content {
-  @include background-image(linear-gradient(-180deg, lighten($orange-gray, 7%) 60%, darken($orange-gray, 5%) 100%));
-  @include border-bottom-radius(3px);
-  padding: 12px;
-
-  h3 {
-    font-size: inherit;
-    line-height: inherit;
-    margin: 0 0 7px 0;
+    h3 {
+      font-size: inherit;
+      line-height: inherit;
+      margin: 0 0 7px 0;
+    }
   }
 }
 

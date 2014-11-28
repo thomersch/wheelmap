@@ -1,3 +1,8 @@
+#= require leaflet
+#= require leaflet/leaflet.locate
+#= require spin
+#= require leaflet/leaflet.spin
+
 ###
   Default map options
 ###
@@ -22,15 +27,13 @@ initMap = (element)->
   $map = $(element)
   map = L.map($map[0], defaultMapOptions)
 
-  attachEvents(map, element)
+  attachEvents(map, $map)
 
   addMapboxTileLayer(map)
   map.attributionControl.setPrefix('');
   addLocateControl(map)
 
-  $map.trigger('map:init', map)
-
-  map
+  map.fire('init')
 
 ###
   Add mapbox tile layer
@@ -49,13 +52,10 @@ addLocateControl = (map)->
 ###
 attachEvents = (map, element)->
   $element = $(element)
-  eventNames = 'movestart moveend zoomstart zoomend popupopen'.split(' ')
 
-  for eventName in eventNames
-    do (eventName) ->
-      map.on eventName, (event)->
-        $element.trigger('map:' + eventName, event);
-        return
+  map.on 'movestart moveend zoomstart zoomend click init', (event)->
+    $element.trigger("map:#{event.type}", event)
+    return
 
   return
 

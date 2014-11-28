@@ -1,5 +1,6 @@
-#= require os/map/map
-#= require os/map/features
+#= require ../map/map
+#= require ../map/features
+#= require ../map/popup
 
 $document = $(document)
 wheelmap = @wheelmap
@@ -38,9 +39,28 @@ $document.on 'map:moveend map:zoomend', (event, mapEvent)->
 ###
 $document.on 'map:requestfeaturesstart map:requestfeaturesend map:requestfeaturesabort', (event, map)->
   # If event comes from feature request start start spinner
-  map.spin(event.type is 'map:requestfeaturesstart');
+  map.spin(event.type is 'map:requestfeaturesstart')
 
   return
+
+###
+  Bind popup to marker
+###
+$document.on 'map-marker:click', (event, markerEvent)->
+  marker = markerEvent.target
+
+  if marker.getPopup()?
+    return
+
+  wheelmap.map.popup.bind(marker)
+
+  # On marker click
+  #   Bind popup ✔
+  #   Fetch popup content
+  #   Open popup
+
+  return
+
 
 ###
   Initialize maps when dom is ready or pjax loaded new content
@@ -48,8 +68,13 @@ $document.on 'map:requestfeaturesstart map:requestfeaturesend map:requestfeature
 $document.on 'ready pjax:end', (event)->
   $('[data-map]').map()
 
+  return
+
 ###
   Load markers
 ###
-$document.on 'map:init', (event, map)->
+$document.on 'map:init', (event, mapEvent)->
+  map = mapEvent.target
   wheelmap.map.features.request(map, map.getBounds())
+
+  return
