@@ -64,6 +64,7 @@ end
 
 group :assets do
   gem 'jquery-rails', '2.3.0'
+  gem 'leaflet-rails'
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'turbo-sprockets-rails3'
