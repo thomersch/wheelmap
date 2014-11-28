@@ -12,7 +12,7 @@
 #= require ember
 #= require ember-data
 #= require spin
-#= require leaflet/leaflet-src
+#= require leaflet
 #= require leaflet/leaflet.locate
 #= require ember-leaflet
 #= require jquery/jquery.magnific-popup.js
