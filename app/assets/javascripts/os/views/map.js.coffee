@@ -52,12 +52,7 @@ $document.on 'map-marker:click', (event, markerEvent)->
   if marker.getPopup()?
     return
 
-  wheelmap.map.popup.bind(marker)
-
-  # On marker click
-  #   Bind popup ✔
-  #   Fetch popup content
-  #   Open popup
+  wheelmap.map.popup.request(marker)
 
   return
 

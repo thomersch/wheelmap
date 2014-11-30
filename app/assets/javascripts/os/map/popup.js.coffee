@@ -1,39 +1,28 @@
 #= require ./map
 
 ###
-  Bind popup to marker if no popup was bound before
+  Bind popup to marker
 ###
-bindPopup = (marker)->
-  nodeId = marker.feature.properties.id
-  popup = L.popup()
-
-  marker.bindPopup(popup, offset: [0, -24])
-
-  requestContent(popup, marker)
+createPopup = (marker, content)->
+  marker.bindPopup(content, offset: [0, -24])
 
   return
 
 ###
   Request popup content
 ###
-requestContent = (popup, marker)->
+requestContent = (marker)->
   nodeId = marker.feature.properties.id
 
   $.ajax("/nodes/#{nodeId}/popup")
     .success (response)->
-      $content = $(response)
-      attachEvents(popup, $content)
+      createPopup(marker, response)
+      marker.openPopup()
 
-      popup.setContent(response)
-
-attachEvents = (popup, element)->
-  $element = $(element)
-
-  popup.on 'contentupdate', (event)->
-    $element.trigger("map-popup:#{event.type}", event)
+      return
 
 ###
   Exports
 ###
 @wheelmap.map.popup =
-  bind: bindPopup
+  request: requestContent
