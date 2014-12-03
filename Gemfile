@@ -73,6 +73,7 @@ group :assets do
   gem 'compass-rails'
   gem 'bootstrap-sass'
   gem 'pjax_rails'
+  gem 'js-routes'
 end
 
 group :test, :development do

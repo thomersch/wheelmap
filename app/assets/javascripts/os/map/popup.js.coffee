@@ -1,4 +1,5 @@
 #= require ./map
+#= require js-routes
 
 ###
   Bind popup to marker
@@ -14,7 +15,7 @@ createPopup = (marker, content)->
 requestContent = (marker)->
   nodeId = marker.feature.properties.id
 
-  $.ajax("/nodes/#{nodeId}/popup")
+  $.ajax(wheelmap.routes.popup_node_path(nodeId))
     .success (response)->
       createPopup(marker, response)
       marker.openPopup()
