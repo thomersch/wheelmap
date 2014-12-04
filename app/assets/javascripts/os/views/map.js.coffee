@@ -37,7 +37,7 @@ $document.on 'map:moveend map:zoomend', (event, mapEvent)->
 ###
   Add/remove loading spinner
 ###
-$document.on 'map:requestfeaturesstart map:requestfeaturesend map:requestfeaturesabort', (event, map)->
+$document.on 'map-features:requeststart map-features:requestend map-features:requestabort', (event, map)->
   # If event comes from feature request start start spinner
   map.spin(event.type is 'map:requestfeaturesstart')
 
@@ -49,6 +49,7 @@ $document.on 'map:requestfeaturesstart map:requestfeaturesend map:requestfeature
 $document.on 'map-marker:click', (event, markerEvent)->
   marker = markerEvent.target
 
+  # Only bind popup, if no popup is set
   if marker.getPopup()?
     return
 

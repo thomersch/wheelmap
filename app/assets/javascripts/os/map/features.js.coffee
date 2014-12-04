@@ -10,7 +10,7 @@ wheelmap = @wheelmap
 requestFeatures = (map, bounds)->
   $map = $(map.getContainer())
 
-  requestEvent = $.Event('map:requestfeaturesstart')
+  requestEvent = $.Event('map-features:requeststart')
   $map.trigger(requestEvent, map, bounds)
 
   if requestEvent.isDefaultPrevented()
@@ -18,7 +18,7 @@ requestFeatures = (map, bounds)->
 
   if lastRequest?
     lastRequest.abort()
-    $map.trigger('map:requestfeaturesabort', map, bounds)
+    $map.trigger('map-features:requestabort', map, bounds)
 
   lastRequest = $.ajax '/nodes.geojson',
     data:
@@ -26,7 +26,7 @@ requestFeatures = (map, bounds)->
       limit: 400
 
   lastRequest.done (features)->
-    $map.trigger('map:requestfeaturesend', map, features)
+    $map.trigger('map-features:requestend', map, features)
     addFeatures(map, features)
     lastRequest = null
 
@@ -40,7 +40,7 @@ requestFeatures = (map, bounds)->
 addFeatures = (map, features)->
   $map = $(map.getContainer())
 
-  addEvent = $.Event('map:addfeaturesstart')
+  addEvent = $.Event('map-features:addstart')
   $map.trigger(addEvent, map, features)
 
   if addEvent.isDefaultPrevented()
@@ -56,7 +56,7 @@ addFeatures = (map, features)->
   geoJsonLayer.clearLayers()
   geoJsonLayer.addData(features)
 
-  $map.trigger('map:addfeaturesend', map, geoJsonLayer)
+  $map.trigger('map-features:addend', map, geoJsonLayer)
 
   return
 

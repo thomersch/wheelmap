@@ -53,7 +53,7 @@ addLocateControl = (map)->
 attachEvents = (map, element)->
   $element = $(element)
 
-  map.on 'movestart moveend zoomstart zoomend click init', (event)->
+  map.on 'movestart moveend zoomstart zoomend click init requestfeaturesabort requestfeaturesend', (event)->
     $element.trigger("map:#{event.type}", event)
     return
 

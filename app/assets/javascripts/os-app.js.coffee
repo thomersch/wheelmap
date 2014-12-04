@@ -1,5 +1,5 @@
 #= require jquery
-#= require i18n.js
+#= require bootstrap-dropdown
 #= require dropzone
 #= require_self
 #= require jquery.pjax

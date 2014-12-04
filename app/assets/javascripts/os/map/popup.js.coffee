@@ -5,9 +5,12 @@
   Bind popup to marker
 ###
 createPopup = (marker, content)->
-  marker.bindPopup(content, offset: [0, -24])
+  popup = L.popup()
+    .setContent(content)
 
-  return
+  marker.bindPopup(popup, offset: [0, -24], className: 'node-popup')
+
+  return popup
 
 ###
   Request popup content
