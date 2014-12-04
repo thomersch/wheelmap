@@ -28,7 +28,7 @@ class Poi < ActiveRecord::Base
   self.include_root_in_json = false
 
   WHEELCHAIR_STATUS_VALUES = {:yes => 1, :limited => 2, :no => 4, :unknown => 8}
-  WHEELCHAIR_ACCESIBILITY  = {'yes' => 'fully_accessible', 'limited' => 'limited_accessible', 'no' => 'not_accessible', 'unknown' => 'unknown_accessible'}
+  WHEELCHAIR_ACCESSIBILITY  = {'yes' => 'fully_accessible', 'limited' => 'limited_accessible', 'no' => 'not_accessible', 'unknown' => 'unknown_accessible'}
 
   belongs_to :region, :touch => false
   belongs_to :node_type, :touch => false, :include => :category
@@ -464,8 +464,8 @@ class Poi < ActiveRecord::Base
     escaped_search_string
   end
 
-  def accesibility
-    WHEELCHAIR_ACCESIBILITY[wheelchair]
+  def accessibility
+    WHEELCHAIR_ACCESSIBILITY[wheelchair]
   end
 
   protected

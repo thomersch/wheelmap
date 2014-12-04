@@ -5,7 +5,7 @@
       %div.dropdown
         %a{:'data-toggle' => 'dropdown', class: "dropdown-toggle btn wheelchair #{node_status.wheelchair}", :'data-status' => node_status.wheelchair}
           %span.pull-left.text= t("home.index.popup.form.#{node_status.wheelchair}")
-          %i.pull-left.icon-question-sign{'data-toggle' => 'popover', 'data-title' => t("home.index.popup.form.#{node_status.wheelchair}"), 'data-content' => t("wheelmap.what_is.#{node_status.accesibility}"), 'data-trigger' => 'hover'}
+          %i.pull-left.icon-question-sign{'data-toggle' => 'popover', 'data-title' => t("home.index.popup.form.#{node_status.wheelchair}"), 'data-content' => t("wheelmap.what_is.#{node_status.accessibility}"), 'data-trigger' => 'hover'}
           = fa_icon('caret-down', class: 'pull-right')
         %ul.dropdown-menu{'role' => 'menu'}
           - %w{yes limited no}.each do |status|
@@ -15,7 +15,7 @@
                   %i.icon-ok
                 %span.text
                   = t("home.index.popup.form.#{status}")
-                %i.icon-question-sign{'data-toggle' => 'popover', 'data-title' => t("home.index.popup.form.#{status}"), 'data-content' => t("wheelmap.what_is.#{node_status.accesibility}"), 'data-trigger' => 'hover'}
+                %i.icon-question-sign{'data-toggle' => 'popover', 'data-title' => t("home.index.popup.form.#{status}"), 'data-content' => t("wheelmap.what_is.#{node_status.accessibility}"), 'data-trigger' => 'hover'}
 
           %li.submit
             %button.btn{:'data-toggle' => 'status-submit', :'data-url' => update_wheelchair_node_url(node_status, :format => :js), disabled: 'disabled'}
